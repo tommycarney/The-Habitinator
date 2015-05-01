@@ -1,0 +1,20 @@
+<% if signed_in? %>
+
+<p> In the app  - introduction to the concept of mes minis habitudes</p>
+<%= link_to "Want to create some habits?", new_habit_path, class: "btn btn-lg btn-danger" %>
+
+
+<% else %>
+
+<div class="jumbotron">
+        
+        <h1>Bienvenue chez les minis habitudes</h1>
+       
+        <p>
+        	<%= link_to 'Create an Account', new_user_registration_path, :class => "btn btn-lg btn-primary", :role => "button" %>
+ 
+        </p>
+       
+ </div>
+
+ <% end %>

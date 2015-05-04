@@ -11,15 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504181630) do
+ActiveRecord::Schema.define(version: 20150504182938) do
 
   create_table "habits", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "habit1"
-    t.text     "habit2"
-    t.text     "habit3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "aftertrigger"
+    t.text     "behavior"
   end
 
   create_table "users", force: :cascade do |t|

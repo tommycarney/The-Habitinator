@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_many :habits
+  has_many :habits, :dependent => :destroy
+  accepts_nested_attributes_for :habits
+
 
    def set_default_role
    	self.role ||= :student

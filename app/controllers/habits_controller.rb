@@ -5,7 +5,7 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = Habit.all
+    @habits = current_user.habits
   end
 
   # GET /habits/1
@@ -30,8 +30,8 @@ class HabitsController < ApplicationController
 
     respond_to do |format|
       if @habit.save
-        format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
-        format.json { render :show, status: :created, location: @habit }
+        format.html { redirect_to habits_path, notice: 'Habit was successfully created.' }
+        format.json { render :index, status: :created, location: @habit }
       else
         format.html { render :new }
         format.json { render json: @habit.errors, status: :unprocessable_entity }

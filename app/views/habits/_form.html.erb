@@ -1,24 +1,29 @@
-<%= form_for(@habit) do |f| %>
-  <% if @habit.errors.any? %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this habit from being saved:</h2>
 
       <ul>
-      <% @habit.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+<% 3.times do %>
+
+<%= f.fields_for :habits, @user.habits.build  do |builder| %>
 
   <div class="field">
-    <%= f.label :aftertrigger %><br>
-    <%= f.text_area :aftertrigger %>
+    <%= builder.label :aftertrigger %><br>
+    <%= builder.text_area :aftertrigger %>
   </div>
   <div class="field">
-    <%= f.label :behavior %><br>
-    <%= f.text_area :behavior %>
+    <%= builder.label :behavior %><br>
+    <%= builder.text_area :behavior %>
   </div>
+<% end %>
+<% end %>
 
   <div class="actions">
     <%= f.submit %>

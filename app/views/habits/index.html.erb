@@ -1,7 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Habits</h1>
+<h1><%= @user.email %>'s habits</h1>
 
-<%=
+<% find_real_habits(@user).each do |habit| %>
+
+<p><%= habit.aftertrigger %></p>
+<p><%= habit.behavior %></p>
+<%= link_to 'Edit Habit', edit_habit_path(habit) %>
+
+<% end %>
+
+
+
 
 <%= link_to 'New Habit', new_habit_path %>

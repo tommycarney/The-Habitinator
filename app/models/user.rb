@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :habits, :dependent => :destroy
-  accepts_nested_attributes_for :habits
+  accepts_nested_attributes_for :habits, allow_destroy: true
 
 
    def set_default_role

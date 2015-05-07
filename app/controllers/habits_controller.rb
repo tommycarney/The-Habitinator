@@ -5,7 +5,8 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = current_user.habits
+    @user = current_user
+    
   end
 
   # GET /habits/1
@@ -15,7 +16,11 @@ class HabitsController < ApplicationController
 
   # GET /habits/new
   def new
-    @habit = Habit.new
+    @user  = current_user
+    if @user.habits.count >= 3
+      redirect_to habits_path
+    end
+
   end
 
   # GET /habits/1/edit
@@ -71,6 +76,6 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:habit1, :habit2, :habit3)
+      params.require(:habit).permit(:aftertrigger, :behavior)
     end
 end

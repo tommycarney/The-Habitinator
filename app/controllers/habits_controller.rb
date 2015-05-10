@@ -26,6 +26,7 @@ class HabitsController < ApplicationController
   # GET /habits/1/edit
   def edit
   end
+  
 
   # POST /habits
   # POST /habits.json

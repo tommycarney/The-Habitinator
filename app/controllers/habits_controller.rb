@@ -48,13 +48,15 @@ class HabitsController < ApplicationController
   # PATCH/PUT /habits/1
   # PATCH/PUT /habits/1.json
   def update
+     @habit = Habit.find(params[:id])
+
     respond_to do |format|
-      if @habit.update(habit_params)
-        format.html { redirect_to @habit, notice: 'Habit was successfully updated.' }
-        format.json { render :show, status: :ok, location: @habit }
+      if @habit.update_attributes(habit_params)
+        format.html { redirect_to(@habit, :notice => 'Habit was successfully updated.') }
+        format.json { respond_with_bip(@habit) }
       else
-        format.html { render :edit }
-        format.json { render json: @habit.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@habit) }
       end
     end
   end

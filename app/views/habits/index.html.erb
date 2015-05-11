@@ -4,9 +4,9 @@
 
 <% find_real_habits(@user).each do |habit| %>
 
-<p><%= habit.aftertrigger %></p>
-<p><%= habit.behavior %></p>
-<%= link_to 'Edit Habit', edit_habit_path(habit) %>
+
+<p><%= best_in_place habit, :aftertrigger, :as => :input, :nil => "Click me to add content!" %></p>
+<p><p><%= best_in_place habit, :behavior, :as => :input, :nil => "Click me to add content!" %></p>
 
 <% end %>
 

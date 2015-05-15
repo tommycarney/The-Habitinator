@@ -37,6 +37,7 @@ gem 'devise'
 gem 'therubyracer'  # If using Ruby
 gem 'less-rails-bootstrap'
 gem 'best_in_place', '~> 3.0.1'
+gem 'gibbon'
 
 group :development do
 	gem 'better_errors'

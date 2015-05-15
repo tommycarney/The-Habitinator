@@ -36,6 +36,14 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.before_configuration do 
+    env_file = File.join(Rails.root, 'config', 'application.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+  end
+
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

@@ -8,10 +8,17 @@ class User < ActiveRecord::Base
 
   has_many :habits, :dependent => :destroy
   accepts_nested_attributes_for :habits, allow_destroy: true
+  after_create :subscribe_user_to_mailing_list
 
 
    def set_default_role
    	self.role ||= :student
    end
+
+
+
+   def subscribe_user_to_mailing_list
+    SubscribeUserToMailingListJob.perform_later(self)
+  end
    
 end

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
    	self.role ||= :student
    end
 
-
+   private
 
    def subscribe_user_to_mailing_list
     SubscribeUserToMailingListJob.perform_later(self)

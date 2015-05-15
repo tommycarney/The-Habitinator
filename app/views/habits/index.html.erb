@@ -5,8 +5,8 @@
 <% find_real_habits(@user).each do |habit| %>
 
 
-<p><%= best_in_place habit, :aftertrigger, :as => :input, :nil => "Click me to add content!" %></p>
-<p><p><%= best_in_place habit, :behavior, :as => :input, :nil => "Click me to add content!" %></p>
+<p><%= best_in_place habit, :aftertrigger, :as => :input, :nil => "Click me to add content!" %>  <span class="glyphicon glyphicon-edit edit"></span></p>
+<p><p><%= best_in_place habit, :behavior, :as => :input, :nil => "Click me to add content!" %>   <span class="glyphicon glyphicon-edit edit"></span></p>
 
 <% end %>
 

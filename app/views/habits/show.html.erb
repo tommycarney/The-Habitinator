@@ -1,24 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @habit.user_id %>
-</p>
-
-<p>
-  <strong>Habit1:</strong>
-  <%= @habit.habit1 %>
-</p>
-
-<p>
-  <strong>Habit2:</strong>
-  <%= @habit.habit2 %>
-</p>
-
-<p>
-  <strong>Habit3:</strong>
-  <%= @habit.habit3 %>
-</p>
+<p> <%= @habit.aftertrigger %></p>
 
 <%= link_to 'Edit', edit_habit_path(@habit) %> |
 <%= link_to 'Back', habits_path %>

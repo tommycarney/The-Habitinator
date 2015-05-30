@@ -1,0 +1,10 @@
+$(document).ready(function(){ 
+  $("#createAccount").click(function(){
+    $('#login').modal('hide');
+    $('#sign_up').modal('show');
+  });
+  $("#signIn").click(function(){
+    $('#sign_up').modal('hide');
+    $('#login').modal('show');
+  });
+});

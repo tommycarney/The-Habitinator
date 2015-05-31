@@ -7,14 +7,37 @@
 <% else %>
 
 <div class="jumbotron">
-        
-        <h1>Bienvenue chez les minis habitudes</h1>
-       
-        <p>
-        	<%= link_to 'Create an Account', new_user_registration_path, :class => "btn btn-lg btn-primary", :role => "button" %>
+ 	<h2>Stage de 5 Jours</h2>
+    <h1>Et si vous pouviez apprendre à vous créér de nouvelles habitudes et vous y tenir ? </h1>
+     
+     <p>
+ 
  
         </p>
-       
- </div>
+     <div class="row">
+     	<div class="col-sm-6">
+     		<h2>Je m’inscris gratuitement</h2>
+     	<p>C'est pour vous si vous procrastinez face à un gros challenge, vous voulez vous construire de meilleures habitudes de vie, vous levez plus tôt ou vous remettre au sport, vous voulez être mieux organisé, etc…</p>
+
+     	</div>
+    <div class="col-sm-6"> 
+    	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		<%= devise_error_messages! %>
+		<div>
+			<%= f.label :name %><br />
+			<%= f.text_field :name, :autofocus => true %>
+		</div>
+		<div>
+			<%= f.label :email %><br />
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
+		<div>
+			<%= f.label :password %><br />
+			<%= f.password_field :password %></div>
+			<p><div><%= f.submit "Sign up", :class => 'btn btn-small btn-success' %></div></p>
+		<% end %>
+		</div>
+	</div><!-- close the row -->
+</div>   
 
  <% end %>

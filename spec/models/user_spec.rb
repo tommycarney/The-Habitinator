@@ -1,8 +1,9 @@
 require "rails_helper"
 
-Rspec.describe User do 
-  
+RSpec.describe User, :type => :model do 
+
   before do 
+    User.any_instance.stub(:subscribe_user_to_mailing_list)
     @user = User.new(name: "Caro Hardy", email: "caro@carohardy.com", password: "MyPassword")
   end
 
@@ -23,4 +24,14 @@ Rspec.describe User do
 
     it { should be_admin }
   end
+
+  describe "with a habit" do
+    before do
+      @habit = Habit.new(beforetrigger: "After I make a coffee", behavior: "I will stretch", user_id: @user.id)
+      @habit.save!
+    end
+    expect(@user.habits.first).to eq(@habit)
+  end
+
+  
 end
